@@ -21,7 +21,13 @@ services:
       - ./storage/dbdata:/var/lib/mysql
     ports:
       - 33066:3306
-
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - '8080:8000'
+    environment:
+        PMA_ARBITRARY: 1
+        MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
   redis:
     image: redis
     ports:
