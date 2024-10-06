@@ -7,10 +7,13 @@ use Illuminate\Queue\Queue;
 
 class KafkaQueue extends Queue implements QueueContract
 {
-    protected   $consumer;
-    public function __construct($consumer)
+  
+    public function __construct(
+        protected $consumer,
+        protected $producer
+    )
     {
-        $this->consumer = $consumer;
+
     }
  
 	public function size($queue = null)
@@ -20,7 +23,9 @@ class KafkaQueue extends Queue implements QueueContract
 
 	public function push($job, $data = '', $queue = null)
 	{
-	
+        $topic= $this->producer->newTopic('default');
+        $topic->produce(RD_KAFKA_PARTITION_UA, 0, 'hello from laravel');
+        $this->producer->flush(10000);
 	}
 
 	public function pushRaw($payload, $queue = null, array $options = [])
@@ -39,9 +44,10 @@ class KafkaQueue extends Queue implements QueueContract
         $this->consumer->subscribe(['default']);
 
         $message = $this->consumer->consume(120*1000);
+
         switch ($message->err) {
             case RD_KAFKA_RESP_ERR_NO_ERROR:
-                var_dump($message->payload);
+                var_dump($message);
                 break;
             case RD_KAFKA_RESP_ERR__PARTITION_EOF:
                 var_dump('No more messages; will wait for more');

@@ -67,6 +67,17 @@ return [
             'block_for' => null,
         ],
 
+        'kafka'=> [
+            'driver' => 'kafka',
+            'queue' => env('KAFKA_QUEUE','default'),
+            'bootstrap_servers' => env('KAFKA_BOOTSTRAP_SERVERS'),
+            'security_protocol' => env('KAFKA_SECURITY_PROTOCOL'),
+            'sasl_mechanisms' => env('KAFKA_SASL_MECHANISMS'),
+            'sasl_username' => env('KAFKA_SASL_USERNAME'),
+            'sasl_password' => env('KAFKA_SASL_PASSWORD'),
+            'group_id' => env('KAFKA_GROUP_ID'),
+        ]
+
     ],
 
     /*
