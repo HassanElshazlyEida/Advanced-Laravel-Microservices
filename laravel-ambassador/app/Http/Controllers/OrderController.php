@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\OrderCompletedEvent;
-use App\Http\Resources\OrderResource;
 use App\Models\Link;
 use App\Models\Order;
-use App\Models\OrderItem;
 use App\Models\Product;
+use App\Models\OrderItem;
+use App\Jobs\OrderCompleted;
 use Cartalyst\Stripe\Stripe;
 use Illuminate\Http\Request;
+use App\Events\OrderCompletedEvent;
+use App\Http\Resources\OrderResource;
 
 class OrderController extends Controller
 {
@@ -104,7 +105,11 @@ class OrderController extends Controller
         $order->complete = 1;
         $order->save();
 
-        // event(new OrderCompletedEvent($order));
+        // $array = $order->toArray();
+
+        // $array['ambassador_revenue'] = $order->ambassador_revenue;
+
+        // OrderCompleted::dispatch($array);
 
         return [
             'message' => 'success'

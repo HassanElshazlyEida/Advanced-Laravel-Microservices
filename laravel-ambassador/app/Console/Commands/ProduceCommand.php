@@ -14,7 +14,10 @@ class ProduceCommand extends Command
     public function handle()
     {
         $order = Order::first();
-        
-        OrderCompleted::dispatch($order->toArray());
+        $array = $order->toArray();
+
+        $array['ambassador_revenue'] = $order->ambassador_revenue;
+
+        OrderCompleted::dispatch($array);
     }
 }
