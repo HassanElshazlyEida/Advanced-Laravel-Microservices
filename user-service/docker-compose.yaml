@@ -1,13 +1,14 @@
 services:
   users_backend:
+    container_name: users_ms
     build: .
-    ports:
-      - 8001:8000
     volumes:
       - .:/app
     command: 'php artisan serve --host=0.0.0.0'
     depends_on:
       - users_db
+    networks:
+      - users
 
   users_db:
     image: mysql:8
@@ -18,6 +19,9 @@ services:
       MYSQL_PASSWORD: root
     volumes:
       - ./storage/dbdata:/var/lib/mysql
+    networks:
+      - users
+
   users_phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -25,5 +29,11 @@ services:
     environment:
         PMA_ARBITRARY: 1
         MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+    networks:
+      - users
+
+networks:
+  users:
+    name: users
 
 
