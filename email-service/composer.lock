@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+    "content-hash": "5c8b8b8b41a1406b4ab65263867499db",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1023,6 +1023,42 @@
                 }
             ],
             "time": "2024-07-18T11:15:46+00:00"
+        },
+        {
+            "name": "hassan-elshazly-eida/kafka-queue",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HassanElshazlyEida/kafka-queue.git",
+                "reference": "8cc35e10fa80990330aefbc6f7133aed70cb5a4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HassanElshazlyEida/kafka-queue/zipball/8cc35e10fa80990330aefbc6f7133aed70cb5a4b",
+                "reference": "8cc35e10fa80990330aefbc6f7133aed70cb5a4b",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.75"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HassanElshazlyEida\\KafkaQueue\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "HassanElshazlyEida",
+                    "email": "hassanaboeata@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/HassanElshazlyEida/kafka-queue/tree/main",
+                "issues": "https://github.com/HassanElshazlyEida/kafka-queue/issues"
+            },
+            "time": "2024-10-06T15:13:08+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7813,7 +7849,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hassan-elshazly-eida/kafka-queue": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

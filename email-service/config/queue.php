@@ -73,7 +73,7 @@ return [
 
         'kafka'=> [
             'driver' => 'kafka',
-            'queue' => env('KAFKA_QUEUE','default'),
+            'queue' => env('KAFKA_TOPIC','default'),
             'bootstrap_servers' => env('KAFKA_BOOTSTRAP_SERVERS'),
             'security_protocol' => env('KAFKA_SECURITY_PROTOCOL'),
             'sasl_mechanisms' => env('KAFKA_SASL_MECHANISMS'),
