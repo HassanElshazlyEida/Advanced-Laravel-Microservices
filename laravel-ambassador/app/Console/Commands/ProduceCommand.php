@@ -2,7 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\ProduceJob;
+use App\Models\Order;
+use App\Jobs\OrderCompleted;
 use Illuminate\Console\Command;
 
 class ProduceCommand extends Command
@@ -12,6 +13,8 @@ class ProduceCommand extends Command
 
     public function handle()
     {
-        ProduceJob::dispatch();
+        $order = Order::first();
+        
+        OrderCompleted::dispatch($order->toArray());
     }
 }

@@ -9,12 +9,19 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class ProduceJob implements ShouldQueue
+class OrderCompleted implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public function __construct(
+        public array $order
+    )
+    {
+        //
+    }
     public function handle()
     {
-       ProduceJob::dispatch();
+      var_dump('message from laravel-email app');
+      var_dump($this->order);
     }
 }
