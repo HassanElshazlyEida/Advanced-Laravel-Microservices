@@ -51,11 +51,9 @@ class AuthController extends Controller
         ])->withCookie($cookie);
     }
 
-    public function user(Request $request)
+    public function user()
     {
-        $user = $request->user();
-
-        return new UserResource($user);
+        return $this->userService->get('/user');
     }
 
     public function logout()
