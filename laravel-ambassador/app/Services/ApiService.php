@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 abstract class ApiService
 {
@@ -16,10 +17,10 @@ abstract class ApiService
         ]
         )->$method($this->url.$path,$data);
 
-        if($response->ok()) {
+        if($response->status() < 400) {
             return $response->json();
         }
-        throw new \Exception($response->body());
+        throw new HttpException($response->status(),$response->body());
     }
 
     public function post($path,$data) {
