@@ -1,0 +1,45 @@
+services:
+
+  checkout_backend:
+    build: .
+    ports:
+      - 8002:8000
+    volumes:
+      - .:/app
+    command: 'php artisan serve --host=0.0.0.0'
+    depends_on:
+      - checkout_db
+    networks:
+      - checkout
+      - users
+
+  checkout_db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_DATABASE: checkout
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - ./storage/dbdata:/var/lib/mysql
+
+    networks:
+      - checkout
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - '8082:8002'
+    environment:
+        PMA_ARBITRARY: 1
+        MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+    networks:
+      - checkout
+
+
+networks:
+  checkout:
+  users:
+    name: users
+    external: true
+

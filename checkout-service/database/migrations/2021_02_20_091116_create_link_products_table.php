@@ -14,7 +14,7 @@ class CreateLinkProductsTable extends Migration
     public function up()
     {
         Schema::create('link_products', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('link_id');
             $table->unsignedBigInteger('product_id')->nullable();
 
