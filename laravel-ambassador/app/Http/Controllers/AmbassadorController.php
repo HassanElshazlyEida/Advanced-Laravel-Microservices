@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+
+use App\Services\UserService;
 
 class AmbassadorController extends Controller
 {
+    public function __construct(
+        protected UserService $userService
+    )
+    {
+
+        
+    }
     public function index()
     {
-        return User::ambassadors()->get();
+        $users = $this->userService->get('/users');
+        return collect($users)->filter(fn ($user) => $user['is_admin'] == 0)->values();
     }
 }

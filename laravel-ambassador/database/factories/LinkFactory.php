@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Link;
-use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LinkFactory extends Factory
@@ -24,7 +24,7 @@ class LinkFactory extends Factory
     {
         return [
             'code' => $this->faker->slug,
-            'user_id' => User::inRandomOrder()->first()->id
+            'user_id' => rand(1, 10)
         ];
     }
 }
