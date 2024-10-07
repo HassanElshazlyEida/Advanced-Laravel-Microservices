@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+    "content-hash": "50f5c21d3ee17b13bfa5f6a50bdaf99f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -185,6 +185,130 @@
                 }
             ],
             "time": "2023-12-11T17:09:12+00:00"
+        },
+        {
+            "name": "cartalyst/stripe",
+            "version": "v2.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/stripe.git",
+                "reference": "e75b4d714fec5f034d533e55f5365f0229b5686d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/stripe/zipball/e75b4d714fec5f034d533e55f5365f0229b5686d",
+                "reference": "e75b4d714fec5f034d533e55f5365f0229b5686d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0|~7.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "branch-alias": {
+                    "dev-master": "2.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cartalyst\\Stripe\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com",
+                    "homepage": "https://cartalyst.com"
+                }
+            ],
+            "description": "A comprehensive Stripe API package.",
+            "keywords": [
+                "cartalyst",
+                "php",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/cartalyst/stripe/issues",
+                "source": "https://github.com/cartalyst/stripe/tree/v2.4.6"
+            },
+            "time": "2021-10-09T10:40:49+00:00"
+        },
+        {
+            "name": "cartalyst/stripe-laravel",
+            "version": "v13.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/stripe-laravel.git",
+                "reference": "2f2b2b4e0de0fc0bce61a95134031ec2c732f999"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/stripe-laravel/zipball/2f2b2b4e0de0fc0bce61a95134031ec2c732f999",
+                "reference": "2f2b2b4e0de0fc0bce61a95134031ec2c732f999",
+                "shasum": ""
+            },
+            "require": {
+                "cartalyst/stripe": "^2.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "cartalyst/php-cs-fixer-config": "^1.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "component": "implementation",
+                "branch-alias": {
+                    "dev-master": "13.0.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Cartalyst\\Stripe\\Laravel\\StripeServiceProvider"
+                    ],
+                    "aliases": {
+                        "Stripe": "Cartalyst\\Stripe\\Laravel\\Facades\\Stripe"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cartalyst\\Stripe\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com",
+                    "homepage": "https://cartalyst.com"
+                }
+            ],
+            "description": "Laravel 8 integration for the Cartalyst Stripe package.",
+            "keywords": [
+                "cartalyst",
+                "laravel",
+                "php",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/cartalyst/stripe-laravel/issues",
+                "source": "https://github.com/cartalyst/stripe-laravel/tree/v13.1.0"
+            },
+            "time": "2020-12-23T13:33:41+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1025,17 +1149,89 @@
             "time": "2024-07-18T11:15:46+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v8.83.27",
+            "name": "hassan-elshazly-eida/kafka-queue",
+            "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "e1afe088b4ca613fb96dc57e6d8dbcb8cc2c6b49"
+                "url": "https://github.com/HassanElshazlyEida/kafka-queue.git",
+                "reference": "8cc35e10fa80990330aefbc6f7133aed70cb5a4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e1afe088b4ca613fb96dc57e6d8dbcb8cc2c6b49",
-                "reference": "e1afe088b4ca613fb96dc57e6d8dbcb8cc2c6b49",
+                "url": "https://api.github.com/repos/HassanElshazlyEida/kafka-queue/zipball/8cc35e10fa80990330aefbc6f7133aed70cb5a4b",
+                "reference": "8cc35e10fa80990330aefbc6f7133aed70cb5a4b",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.75"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HassanElshazlyEida\\KafkaQueue\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "HassanElshazlyEida",
+                    "email": "hassanaboeata@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/HassanElshazlyEida/kafka-queue/tree/main",
+                "issues": "https://github.com/HassanElshazlyEida/kafka-queue/issues"
+            },
+            "time": "2024-10-06T15:13:08+00:00"
+        },
+        {
+            "name": "hassan-elshazly-eida/user-service-api",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HassanElshazlyEida/user-service-api.git",
+                "reference": "148643f1a6082815d511fd099981e6e307c7f4b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HassanElshazlyEida/user-service-api/zipball/148643f1a6082815d511fd099981e6e307c7f4b4",
+                "reference": "148643f1a6082815d511fd099981e6e307c7f4b4",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "8.75"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HassanElshazlyEida\\UserServiceApi\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "HassanElshazlyEida",
+                    "email": "hassanaboeata@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/HassanElshazlyEida/user-service-api/tree/main",
+                "issues": "https://github.com/HassanElshazlyEida/user-service-api/issues"
+            },
+            "time": "2024-10-07T15:30:24+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v8.75.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "0bb91d3176357da232da69762a64b0e0a0988637"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0bb91d3176357da232da69762a64b0e0a0988637",
+                "reference": "0bb91d3176357da232da69762a64b0e0a0988637",
                 "shasum": ""
             },
             "require": {
@@ -1053,7 +1249,7 @@
                 "opis/closure": "^3.6",
                 "php": "^7.3|^8.0",
                 "psr/container": "^1.0",
-                "psr/log": "^1.0|^2.0",
+                "psr/log": "^1.0 || ^2.0",
                 "psr/simple-cache": "^1.0",
                 "ramsey/uuid": "^4.2.2",
                 "swiftmailer/swiftmailer": "^6.3",
@@ -1067,8 +1263,8 @@
                 "symfony/routing": "^5.4",
                 "symfony/var-dumper": "^5.4",
                 "tijsverkoyen/css-to-inline-styles": "^2.2.2",
-                "vlucas/phpdotenv": "^5.4.1",
-                "voku/portable-ascii": "^1.6.1"
+                "vlucas/phpdotenv": "^5.2",
+                "voku/portable-ascii": "^1.4.8"
             },
             "conflict": {
                 "tightenco/collect": "<5.5.33"
@@ -1124,7 +1320,6 @@
                 "symfony/cache": "^5.4"
             },
             "suggest": {
-                "ably/ably-php": "Required to use the Ably broadcast driver (^1.0).",
                 "aws/aws-sdk-php": "Required to use the SQS queue driver, DynamoDb failed job storage and SES mail driver (^3.198.1).",
                 "brianium/paratest": "Required to run tests in parallel (^6.0).",
                 "doctrine/dbal": "Required to rename columns and drop SQLite columns (^2.13.3|^3.1.4).",
@@ -1195,7 +1390,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-12-08T15:28:55+00:00"
+            "time": "2021-12-07T14:55:46+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -7813,7 +8008,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hassan-elshazly-eida/kafka-queue": 20,
+        "hassan-elshazly-eida/user-service-api": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
