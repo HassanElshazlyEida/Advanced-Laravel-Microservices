@@ -6,7 +6,7 @@ use App\Models\Link;
 use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
-use App\Services\UserService;
+use Services\UserService;
 use Illuminate\Support\Facades\Redis;
 
 class StatsController extends Controller

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Services\UserService;
+use Services\UserService;
 
 class AmbassadorController extends Controller
 {

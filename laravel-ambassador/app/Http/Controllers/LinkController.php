@@ -6,7 +6,7 @@ use App\Models\Link;
 use App\Models\LinkProduct;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Services\UserService;
+use Services\UserService;
 use App\Http\Resources\LinkResource;
 
 class LinkController extends Controller

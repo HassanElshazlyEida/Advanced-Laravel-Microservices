@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\UserService;
+use Services\UserService;
 use Closure;
 use Illuminate\Http\Request;
 

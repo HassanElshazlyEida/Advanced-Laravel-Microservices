@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Order;
 
-use App\Services\UserService;
+use Services\UserService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Redis;
 
@@ -12,7 +12,7 @@ class UpdateRankingsCommand extends Command
 {
     protected $signature = 'update:rankings';
 
- 
+
     
     public function handle()
     {

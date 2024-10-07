@@ -9,7 +9,7 @@ use App\Models\OrderItem;
 use App\Jobs\OrderCompleted;
 use Cartalyst\Stripe\Stripe;
 use Illuminate\Http\Request;
-use App\Services\UserService;
+use Services\UserService;
 use App\Events\OrderCompletedEvent;
 use App\Http\Resources\OrderResource;
 
