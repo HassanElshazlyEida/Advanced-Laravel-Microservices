@@ -13,6 +13,15 @@ services:
       - checkout
       - users
 
+  checkout_queue:
+    build: .
+    command: 'php artisan queue:work'
+    depends_on:
+      - checkout_db
+    networks:
+      - checkout
+
+
   checkout_db:
     image: mysql:8
     restart: always
