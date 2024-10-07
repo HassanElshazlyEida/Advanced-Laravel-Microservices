@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Services\UserService;
 use App\Http\Resources\LinkResource;
+use App\Jobs\LinkCreated;
 
 class LinkController extends Controller
 {
@@ -34,13 +35,19 @@ class LinkController extends Controller
             'user_id' => $user->id,
             'code' => Str::random(6)
         ]);
-
+        $linkProducts = [];
         foreach ($request->input('products') as $product_id) {
-            LinkProduct::create([
+            $linkProduct =LinkProduct::create([
                 'link_id' => $link->id,
                 'product_id' => $product_id
             ]);
+            $linkProducts[] = $linkProduct->toArray();
         }
+
+        $array = $link->toArray();
+        $array['link_products'] = $linkProducts;
+
+        LinkCreated::dispatch($array)->onQueue('checkout_topic');
 
         return $link;
     }
