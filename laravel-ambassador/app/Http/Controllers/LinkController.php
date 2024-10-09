@@ -32,7 +32,7 @@ class LinkController extends Controller
         $user = $this->userService->get('/user');
 
         $link = Link::create([
-            'user_id' => $user->id,
+            'user_id' => $user['id'],
             'code' => Str::random(6)
         ]);
         $linkProducts = [];
@@ -46,7 +46,7 @@ class LinkController extends Controller
 
         $array = $link->toArray();
         $array['link_products'] = $linkProducts;
-
+        
         LinkCreated::dispatch($array)->onQueue('checkout_topic');
 
         return $link;

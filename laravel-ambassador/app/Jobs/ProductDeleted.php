@@ -32,6 +32,6 @@ class ProductDeleted implements ShouldQueue
      */
     public function handle()
     {
-        ProductDeleted::dispatch();
+        
     }
 }

@@ -32,6 +32,6 @@ class LinkCreated implements ShouldQueue
      */
     public function handle()
     {
-        LinkCreated::dispatch();
+   
     }
 }

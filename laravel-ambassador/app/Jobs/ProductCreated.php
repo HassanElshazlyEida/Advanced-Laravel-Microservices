@@ -32,6 +32,6 @@ class ProductCreated implements ShouldQueue
      */
     public function handle()
     {
-       ProductCreated::dispatch();
+      
     }
 }
