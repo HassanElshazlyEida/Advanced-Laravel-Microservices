@@ -22,7 +22,7 @@ services:
     networks:
       - users
 
-  users_phpmyadmin:
+  phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
         - '8081:8001'
