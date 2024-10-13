@@ -6,6 +6,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdateInfoRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Resources\UserResource;
+use App\Models\Order;
 use App\Models\User;
 use Services\UserService;
 use Illuminate\Http\Request;
@@ -22,10 +23,7 @@ class AuthController extends Controller
     }
     public function register(RegisterRequest $request)
     {
-        $data =$request->only('first_name', 'last_name', 'email', 'password')
-        + [
-            'is_admin' => $request->path() === 'api/admin/register' ? 1 : 0
-        ];
+        $data =$request->only('first_name', 'last_name', 'email', 'password')+ [ 'is_admin' =>  0];
         $user = $this->userService->post('/register',$data);
         return response($user, Response::HTTP_CREATED);
     }
@@ -33,12 +31,10 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        $scope = $request->path() == 'api/admin/login' ? 'admin' : 'ambassador';
-
         $response = $this->userService->post('/login', [
             'email' => $request->input('email'),
             'password' => $request->input('password'),
-            'scope' => $scope
+            'scope' =>'ambassador'
         ]);
         if(!($response['jwt'] ?? null)){
             return $response;
@@ -53,7 +49,13 @@ class AuthController extends Controller
 
     public function user()
     {
-        return $this->userService->get('/user');
+        $user = $this->userService->get('/user');
+
+        $orders = Order::where('user_id', $user['id'])->get();
+
+        $user['revenue'] = $orders->sum(fn(Order $order) => $order->total);
+
+        return $user;
     }
 
     public function logout()

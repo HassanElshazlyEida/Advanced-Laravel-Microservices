@@ -25,6 +25,17 @@ services:
     networks:
       - ambassador
 
+
+  ambassador_queue:
+    build: .
+    command: 'php artisan queue:work'
+    environment:
+      CACHE_DRIVER: file
+    depends_on:
+      - ambassador_db
+    networks:
+      - ambassador
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:

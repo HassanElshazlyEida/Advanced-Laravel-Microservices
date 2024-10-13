@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -21,6 +22,12 @@ class OrderCompleted implements ShouldQueue
     }
     public function handle()
     {
-      var_dump('message from laravel-ambassador app');
+        Order::create([
+            'id'=>$this->order['id'],
+            'user_id'=>$this->order['user_id'],
+            'code'=>$this->order['code'],
+            'total'=>$this->order['ambassador_revenue'],
+
+        ]);
     }
 }
