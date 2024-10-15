@@ -32,6 +32,12 @@ class LinkCreated implements ShouldQueue
      */
     public function handle()
     {
-   
+        Link::create([
+            'id'=>  $this->link['id'],
+            'code'=>  $this->link['code'],
+            'user_id'=>  $this->link['user_id'],
+        ]);
+
+        LinkProduct::insert($this->link['link_products']);
     }
 }

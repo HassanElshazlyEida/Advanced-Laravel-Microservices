@@ -25,6 +25,8 @@ class ProductController extends Controller
 
         // clone same product to checkout service
         ProductCreated::dispatch($product->toArray())->onQueue('checkout_topic');
+        ProductCreated::dispatch($product->toArray())->onQueue('ambassador_topic');
+  
 
         return response($product, Response::HTTP_CREATED);
     }
@@ -39,6 +41,8 @@ class ProductController extends Controller
         $product->update($request->only('title', 'description', 'image', 'price'));
 
         ProductUpdated::dispatch($product->toArray())->onQueue('checkout_topic');
+        ProductUpdated::dispatch($product->toArray())->onQueue('ambassador_topic');
+
 
         return response($product, Response::HTTP_ACCEPTED);
     }
@@ -48,6 +52,8 @@ class ProductController extends Controller
         $product->delete();
 
         ProductDeleted::dispatch(['id'=> $product->id])->onQueue('checkout_topic');
+        ProductDeleted::dispatch(['id'=> $product->id])->onQueue('ambassador_topic');
+
 
         return response(null, Response::HTTP_NO_CONTENT);
     }

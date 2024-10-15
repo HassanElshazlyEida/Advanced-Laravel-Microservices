@@ -13,6 +13,16 @@ services:
       - admin
       - users
 
+  admin_queue:
+    build: .
+    command: 'php artisan queue:work'
+    environment:
+      CACHE_DRIVER: file
+    depends_on:
+      - admin_db
+    networks:
+      - admin
+
   admin_db:
     image: mysql:8
     restart: always
