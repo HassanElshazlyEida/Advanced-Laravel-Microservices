@@ -1,0 +1,5 @@
+services:
+  email_queue:
+    build: .
+    image: hassanelshazlyeida/email:0.0.1
+    command: 'php artisan queue:work'
