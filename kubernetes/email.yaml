@@ -24,7 +24,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: kafka-secrets
-                  value: KAFKA_BOOTSTRAP_SERVERS
+                  key: KAFKA_BOOTSTRAP_SERVERS
             - name: KAFKA_GROUP_ID
               value: mygroup
             - name: KAFKA_SASL_MECHANISMS
@@ -33,12 +33,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: kafka-secrets
-                  value: KAFKA_SASL_PASSWORD
+                  key: KAFKA_SASL_PASSWORD
             - name: KAFKA_SASL_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: kafka-secrets
-                  value: KAFKA_SASL_USERNAME
+                  key: KAFKA_SASL_USERNAME
             - name: KAFKA_SECURITY_PROTOCOL
               value: SASL_SSL
             - name: KAFKA_TOPIC
@@ -53,13 +53,13 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: mail-secrets
-                  value: MAIL_PASSWORD
+                  key: MAIL_PASSWORD
             - name: MAIL_PORT
               value: "2525"
             - name: MAIL_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: mail-secrets
-                  value: MAIL_USERNAME
+                  key: MAIL_USERNAME
           image: hassanelshazlyeida/email:0.0.1
           name: email-queue
